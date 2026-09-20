@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Line</title>
+<meta name="description" content="An AI phone assistant for restaurants: answers every call, takes takeout orders in plain conversation, and sends them to your kitchen.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128222;</text></svg>">
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --surface: #ffffff;
+    --text: #17161a;
+    --muted: #56545e;
+    --line: #e6e3dd;
+    --accent: #b8461f;
+    --accent-soft: #fdf1ea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #131316;
+      --surface: #1b1b1f;
+      --text: #f2f0ee;
+      --muted: #a5a2ac;
+      --line: #2e2e34;
+      --accent: #f1855a;
+      --accent-soft: #2a1a13;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #131316; --surface: #1b1b1f; --text: #f2f0ee; --muted: #a5a2ac; --line: #2e2e34; --accent: #f1855a; --accent-soft: #2a1a13;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 17px/1.65 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 72px 0 8px; }
+  .mark {
+    display: inline-flex; align-items: center; gap: 9px; font-weight: 600;
+    letter-spacing: -0.01em; font-size: 15px; color: var(--muted);
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  h1 {
+    font-size: clamp(32px, 6.2vw, 46px); line-height: 1.1; letter-spacing: -0.028em;
+    margin: 22px 0 16px; font-weight: 650;
+  }
+  .lede { font-size: clamp(18px, 2.6vw, 20px); color: var(--muted); margin: 0 0 30px; max-width: 34em; }
+  .cta {
+    display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+    padding: 12px 22px; border-radius: 8px; font-weight: 550; font-size: 16px;
+  }
+  .cta:hover { opacity: .9; }
+  .note { font-size: 14px; color: var(--muted); margin-top: 12px; }
+  section { padding: 44px 0; border-top: 1px solid var(--line); margin-top: 48px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .09em; color: var(--muted); font-weight: 600; margin: 0 0 22px; }
+  ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; }
+  ol.steps li { counter-increment: s; position: relative; padding-left: 44px; margin-bottom: 22px; }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 1px;
+    width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); color: var(--accent);
+    display: grid; place-items: center; font-size: 14px; font-weight: 650;
+  }
+  ol.steps strong { display: block; font-weight: 600; }
+  ol.steps span { color: var(--muted); }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 18px 20px; }
+  .card h3 { margin: 0 0 6px; font-size: 16px; font-weight: 600; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .quote { border-left: 3px solid var(--accent); padding-left: 18px; color: var(--muted); font-size: 16px; margin: 0; }
+  .quote cite { display: block; font-style: normal; font-size: 13px; margin-top: 8px; opacity: .8; }
+  footer { padding: 40px 0 72px; border-top: 1px solid var(--line); margin-top: 48px; color: var(--muted); font-size: 15px; }
+  footer a { color: var(--accent); }
+  .status { display: inline-block; background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 5px 13px; font-size: 13px; font-weight: 550; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="mark"><span class="dot"></span> Order Line</span>
+    <h1>Your restaurant's phone, always answered.</h1>
+    <p class="lede">An assistant that picks up every call, takes takeout orders in ordinary conversation, and sends them straight to your kitchen. A person is always one step away.</p>
+    <a class="cta" href="mailto:vamsy.24@gmail.com?subject=Order%20Line%20pilot">Ask about a pilot</a>
+    <p class="note"><span class="status">In development &middot; pilot partners for Q4 2026</span></p>
+  </header>
+
+  <section>
+    <h2>The problem</h2>
+    <p class="quote">Calls arrive exactly when the kitchen is busiest, so they go unanswered — and a caller who can't get through usually orders somewhere else.
+    <cite>A 2025 Harris Poll survey of 2,065 US diners found 58% say their calls to restaurants go unanswered, and 69% would give up on the restaurant.</cite></p>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><strong>The guest calls your existing number.</strong><span>Nothing changes for them, and you keep your number.</span></li>
+      <li><strong>The assistant takes the order.</strong><span>It understands the menu, knows which choices are required, and asks only about what's missing — size, spice level, a side.</span></li>
+      <li><strong>It reads the order back.</strong><span>Item by item, before anything is sent, so mistakes are caught on the call rather than at the counter.</span></li>
+      <li><strong>The order reaches your kitchen.</strong><span>Printed, on screen, or into the point-of-sale system you already use.</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What's different</h2>
+    <div class="grid">
+      <div class="card"><h3>Answers all of them</h3><p>Five calls at once during the dinner rush are five answered calls, not one.</p></div>
+      <div class="card"><h3>Replies without the pause</h3><p>Built to answer at conversational speed, so callers don't talk over dead air.</p></div>
+      <div class="card"><h3>Never invents a price</h3><p>Totals come from your own system. The assistant doesn't guess what anything costs.</p></div>
+      <div class="card"><h3>Hands over to staff</h3><p>Ask for a person and it transfers. Anything it isn't sure about goes to your team, not into the ticket.</p></div>
+      <div class="card"><h3>You stay in control</h3><p>Mark an item unavailable, pause the assistant, or read a transcript of any call.</p></div>
+      <div class="card"><h3>Set up from your menu</h3><p>Onboarding reads your existing menu rather than asking you to rebuild it by hand.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Honestly</h2>
+    <p style="color:var(--muted);margin:0">It takes takeout orders in English, and it says up front that it's automated. It isn't a replacement for your staff, and it won't pretend to be a person. Accuracy and response-time results will be published from the pilot, measured rather than claimed.</p>
+  </section>
+
+  <footer>
+    <p style="margin:0 0 6px"><strong style="color:var(--text)">Order Line</strong> — built by Vamsi Krishna Reddy Lekkala, Westborough, Massachusetts.</p>
+    <p style="margin:0"><a href="mailto:vamsy.24@gmail.com">vamsy.24@gmail.com</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
